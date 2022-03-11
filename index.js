@@ -11,6 +11,9 @@ app.use(express.static("public"));
 app.use("/api/auth", require("./routes/auth"));
 //rutas crud eventos
 
+//lectura y parseo del body
+app.use(express.json());
+
 //Escucho request
 app.listen(process.env.PORT, () => {
   console.log(`Server running in port ${process.env.PORT}`);
