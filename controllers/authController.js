@@ -1,7 +1,7 @@
-const { response } = require("express");
+const { response, request} = require("express");
 
 const createUser = (req, res = response) => {
-    console.log(req)
+    console.log(req.body)
     res.json({
         ok: true,
         msg: "createUser",
