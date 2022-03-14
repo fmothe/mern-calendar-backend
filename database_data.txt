@@ -1,0 +1,7 @@
+user database: { 
+    fmothe,
+    mern_user : x1NEQoHIJr9UMljh
+}
+
+
+mongodb+srv://mern_user:*****@cluster0.b7ycw.mongodb.net/test?authSource=admin&replicaSet=atlas-y4qsxv-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
