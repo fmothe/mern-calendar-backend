@@ -17,13 +17,8 @@ router.post(
     [
         check("name", "Name is required").not().isEmpty().trim(),
         check("email", "Email is required").isEmail().normalizeEmail(),
-        check(
-            "password",
-            "Password is required and must be atleast 6 characters long"
-        )
-            .isLength({ min: 6 })
-            .trim(),
-        validateFields(),
+        check("password","Password is required and must be atleast 6 characters long").isLength({ min: 6 }),
+        validateFields,
     ],
     createUser
 );
@@ -32,13 +27,8 @@ router.post(
     "/",
     [
         check("email", "Email is required").isEmail().normalizeEmail(),
-        check(
-            "password",
-            "Password is required and must be atleast 6 characters long"
-        )
-            .isLength({ min: 6 })
-            .trim(),
-        validateFields(),
+        check("password","Password is required and must be atleast 6 characters long").isLength({ min: 6 }),
+        validateFields,
     ],
     login
 );
