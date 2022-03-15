@@ -6,8 +6,6 @@ const createUser = async (req, res = response) => {
 
     try {
         let user = await User.findOne({ email: email });
-        console.log(user);
-
         if (user) {
             return res.status(400).json({
                 ok: false,
@@ -18,7 +16,8 @@ const createUser = async (req, res = response) => {
         await user.save();
         res.status(201).json({
             ok: true,
-            user: user,
+            user: user.id,
+            name: user.name
         });
     } catch (err) {
         console.log(err);
