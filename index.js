@@ -17,6 +17,7 @@ app.use(express.static("public"));
 app.use(express.json());
 //rutas
 app.use("/api/auth", require("./src/routes/auth"));
+app.use("/api/events", require("./src/routes/events"));
 //rutas crud eventos
 
 //lectura y parseo del body

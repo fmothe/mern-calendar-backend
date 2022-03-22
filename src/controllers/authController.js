@@ -2,7 +2,7 @@ const { response, request } = require("express");
 const User = require("../models/User");
 const encrypt = require("bcryptjs");
 const { resolve } = require("path");
-const { generateJWT } = require("../../helpers/generateJWT");
+const { generateJWT } = require("../helpers/generateJWT");
 
 const createUser = async (req, res = response) => {
     const { name, email, password } = req.body;
@@ -76,7 +76,7 @@ const login = async (req, res = response) => {
 
     } catch (err) {
         console.log(err);
-        res.status(500).json({ status: "failed", err: "contact an admin" });
+        res.status(500).json({ status: "failed", err: "Contact an admin" });
     }
 };
 

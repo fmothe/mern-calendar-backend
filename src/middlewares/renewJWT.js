@@ -6,7 +6,7 @@ const validateJWT = (req,res= response,next) => {
     //The jwt from the user will come from the headers as x-token
     const token = req.header('x-token')
 
-    console.log(token)
+    // console.log(token)
     if(!token) return res.status(401).json({msg: 'No token, authorization denied'})
 
     try{
