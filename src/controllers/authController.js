@@ -29,12 +29,12 @@ const createUser = async (req, res = response) => {
         await user.save();
 
         //Generate JWT
-        const token = await generateJWT(user.id, user.name)
+        const token = await generateJWT(user.id, user.name);
         res.status(201).json({
             ok: true,
             user: user.id,
             name: user.name,
-            token: token
+            token: token,
         });
     } catch (err) {
         console.log(err);
@@ -55,25 +55,21 @@ const login = async (req, res = response) => {
 
         //confirm password for user
         const validPassword = encrypt.compareSync(password, user.password);
-        if(!validPassword){
+        if (!validPassword) {
             return res.status(400).json({
-                ok:true,
-                msg: 'Wrong password'
-            })
+                ok: true,
+                msg: "Wrong password",
+            });
         }
 
-        
-
         //Generate JWT
-        const token = await generateJWT(user.id, user.name)
+        const token = await generateJWT(user.id, user.name);
         res.status(201).json({
             ok: true,
             uid: user.id,
             name: user.name,
-            token:token
+            token: token,
         });
-
-
     } catch (err) {
         console.log(err);
         res.status(500).json({ status: "failed", err: "Contact an admin" });
@@ -81,14 +77,16 @@ const login = async (req, res = response) => {
 };
 
 const renewToken = async (req, res = response) => {
-    const uid = req.uid
-    const name = req.name
+    const uid = req.uid;
+    const name = req.name;
 
-    const newToken = await generateJWT(uid,name)
+    const newToken = await generateJWT(uid, name);
 
     res.json({
         ok: true,
-        newToken: newToken
+        newToken: newToken,
+        uid: uid,
+        name: name,
     });
 };
 
