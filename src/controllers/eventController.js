@@ -23,6 +23,7 @@ const createEvent = async (req, res = response) => {
         newEvent.user = req.uid;
         const eventoDB = await newEvent.save();
         res.json({
+            ok:true,
             event: eventoDB,
         });
     } catch (err) {
@@ -57,6 +58,7 @@ const editEvent = async (req, res = response) => {
         });
 
         res.json({
+            ok:true,
             evento: eventUpdated,
         });
     } catch (err) {
@@ -86,6 +88,7 @@ const deleteEvent = async (req, res = response) => {
         await Event.findByIdAndDelete(eventId);
 
         res.json({
+            ok:true,
             msg: "Event deleted",
             event: event
         })
